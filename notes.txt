@@ -1,0 +1,25 @@
+                    NEW PROJECT
+1.Create new project
+2.npm i react react-dom
+3.Go to asset bundling in laravel documentation
+4.Go to inertia documentation.
+5.Go to tailwind documentation
+
+                    ROUTES
+
+            Shorthand Routes 
+        Dont need controller
+        -Route::inertia('/','Home');
+
+                    LAYOUTS
+A site that all your of your pages can extend.'
+                Persistent LAYOUTS
+    If using them define the default page layout in the resolve callback of applications main javascript file.
+
+                    SCROLL MANAGEMENT
+    To prevent the default scroll resetting, add preserveScroll to links.
+
+                    PROGRESS INDICATOR
+    Customized in the createInertiaApp() function
+
+            
