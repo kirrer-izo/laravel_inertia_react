@@ -48,20 +48,45 @@ const Home = ({posts}) => {
 
 <div className="mt-10">
   <h2 className="text-2xl font-bold mb-6 text-indigo-700 text-center">Latest Posts</h2>
+  <Link href= "/posts/create" className="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mb-6">Create Post</Link>
   <ul className="space-y-4">
-    {posts.map(post => (
+    {posts.data.map(post => (
       <li 
         key={post.id} 
         className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition"
       >
         <p className="text-gray-800">{post.content}</p>
         <span className="text-sm text-gray-500 block mt-2">
-          Posted at: {new Date(post.created_at).toLocaleTimeString()}
+          Posted at: {new Date(post.created_at).toLocaleString()}
         </span>
       </li>
     ))}
   </ul>
 </div>
+
+<div className="mt-6 flex justify-center space-x-2">
+  {posts.links.map((link) =>
+    link.url ? (
+      <Link
+        key={link.label}
+        href={link.url}
+        dangerouslySetInnerHTML={{ __html: link.label }}
+        className={`px-3 py-1 rounded border text-sm transition ${
+          link.active
+            ? "bg-indigo-600 text-white border-indigo-600"
+            : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+        }`}
+      />
+    ) : (
+      <span
+        key={link.label}
+        dangerouslySetInnerHTML={{ __html: link.label }}
+        className="px-3 py-1 rounded border text-sm text-gray-400 bg-gray-100 cursor-not-allowed"
+      />
+    )
+  )}
+</div>
+
 
         </>
     )
