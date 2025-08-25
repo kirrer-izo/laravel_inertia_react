@@ -59,6 +59,7 @@ const Home = ({posts}) => {
         <span className="text-sm text-gray-500 block mt-2">
           Posted at: {new Date(post.created_at).toLocaleString()}
         </span>
+        <Link href= {`/posts/${post.id}`} className="text-blue-400 hover:underline">Read more...</Link>
       </li>
     ))}
   </ul>

@@ -22,4 +22,5 @@ A site that all your of your pages can extend.'
                     PROGRESS INDICATOR
     Customized in the createInertiaApp() function
 
+Want to use route('user.create'). Must install ziggy.
             
