@@ -1,8 +1,10 @@
+import { Head } from "@inertiajs/react";
 import Layout from "../../Layouts/Layout"
 
 const About = () => {
   return (
 <>
+    <Head title="About" />
       <div className="max-w-3xl mx-auto py-12 px-4">
         <h1 className="text-4xl font-semibold mb-4">About This Project</h1>
 

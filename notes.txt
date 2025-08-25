@@ -23,4 +23,6 @@ A site that all your of your pages can extend.'
     Customized in the createInertiaApp() function
 
 Want to use route('user.create'). Must install ziggy.
+Authenticated user state and flash messages is included in the handleinertiarequestmiddleware.
+
             

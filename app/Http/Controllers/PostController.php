@@ -34,7 +34,7 @@ class PostController extends Controller
         $validated = $request->validated();
         Post::create($validated);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Post created successfully');
     }
 
     /**
@@ -50,7 +50,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return inertia('Edit', ['post' => $post]);
     }
 
     /**
@@ -58,7 +58,10 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $validated = $request->validated();
+        $post->update($validated);
+
+        return redirect('/')->with('message', 'Post updated successfully');
     }
 
     /**
@@ -68,6 +71,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Post deleted successfully');
     }
 }

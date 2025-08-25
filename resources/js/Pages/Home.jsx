@@ -1,10 +1,24 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
+import { useState } from "react";
 
 const Home = ({posts}) => {
+  const { flash } = usePage().props
+
+  const [flashMsg, setFlashMsg] = useState(flash.message)
+
+  setTimeout( () => {
+    setFlashMsg(null)
+  }, 2000)
+
     return (
         <>
-
+        <Head title="Home" />
+      <div className="flex items-center justify-end space-2 p-3">
+        {flashMsg && (
+          <div className="p-2 bg-green-500 rounded-md text-white">{flashMsg}</div>
+        )}
+      </div>
 
       <div className="max-w-4xl mx-auto py-16 px-6">
         <h1 className="text-5xl font-bold mb-6 text-indigo-700">Welcome</h1>
@@ -46,7 +60,7 @@ const Home = ({posts}) => {
         </div>
       </div>
 
-<div className="mt-10">
+<div className="max-w-4xl mx-auto py-16 px-6">
   <h2 className="text-2xl font-bold mb-6 text-indigo-700 text-center">Latest Posts</h2>
   <Link href= "/posts/create" className="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mb-6">Create Post</Link>
   <ul className="space-y-4">

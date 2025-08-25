@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 
 
@@ -12,6 +12,7 @@ const Show = ({post}) => {
     }
     return (
         <>
+        <Head title="Show Post" />
         
         <div className="bg-white shadow-md rounded-lg p-4 ">
             
@@ -24,6 +25,7 @@ const Show = ({post}) => {
             <form onSubmit={submit}>
                 <button type="submit" className="bg-red-500 rounded-md text-sm px-4 py-2 text-white">Delete</button>
             </form>
+            <Link href={`/posts/${post.id}/edit`} className="bg-blue-500 rounded-md text-sm px-4 py-2 text-white ml-2">Edit</Link>
         </div>
         </div>
         
